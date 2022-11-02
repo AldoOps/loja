@@ -1,4 +1,4 @@
-package gft.dto;
+package gft.dto.endereco;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

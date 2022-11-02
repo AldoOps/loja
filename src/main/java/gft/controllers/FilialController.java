@@ -1,8 +1,8 @@
 package gft.controllers;
 
 
-import gft.dto.ConsultaFilialDTO;
-import gft.dto.EnderecoDTO;
+import gft.dto.filial.ConsultaFilialDTO;
+import gft.dto.endereco.EnderecoDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,6 +1,7 @@
-package gft.dto;
+package gft.dto.filial;
 
 
+import gft.dto.endereco.EnderecoDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
