@@ -2,42 +2,35 @@ package gft.controllers;
 
 
 import gft.dto.filial.ConsultaFilialDTO;
-import gft.dto.endereco.EnderecoDTO;
+import gft.dto.filial.FilialMapper;
+import gft.dto.filial.RegistroFilialDTO;
+import gft.entities.Filial;
+import gft.services.FilialService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("v1/filias")
 public class FilialController {
 
+    private final FilialService filialService;
+
+    public FilialController(FilialService filialService) {
+        this.filialService = filialService;
+    }
 
     @GetMapping
-    public ResponseEntity<List<ConsultaFilialDTO>> buscarTodasAsFilias() {
+    public ResponseEntity<List<ConsultaFilialDTO>> buscarTodasFilias() {
+        return ResponseEntity.ok(filialService.listarTodasFiliais().stream().map(FilialMapper::fromEntity).collect(Collectors.toList()));
+    }
 
-        EnderecoDTO endereco1 = new EnderecoDTO();
-        endereco1.setLogradouro("Rua A");
-
-        EnderecoDTO endereco2 = new EnderecoDTO();
-        endereco2.setLogradouro("Rua B");
-
-        ConsultaFilialDTO filial1 = new ConsultaFilialDTO();
-        filial1.setName("Filial A");
-        filial1.setEnderecoDTO(endereco1);
-
-        ConsultaFilialDTO filial2 = new ConsultaFilialDTO();
-        filial2.setName("Filial B");
-        filial2.setEnderecoDTO(endereco2);
-
-
-        List<ConsultaFilialDTO> list = List.of(filial1, filial2);
-
-        return ResponseEntity.ok(list);
-
-
+    @PostMapping
+    public ResponseEntity<ConsultaFilialDTO> salvarFilial(@RequestBody RegistroFilialDTO dto) {
+        Filial filial = filialService.saveFilial(FilialMapper.fromDTO(dto));
+        return ResponseEntity.ok(FilialMapper.fromEntity(filial));
     }
 
 

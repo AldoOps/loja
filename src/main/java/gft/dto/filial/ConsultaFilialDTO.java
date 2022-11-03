@@ -15,7 +15,7 @@ public class ConsultaFilialDTO {
 
 
     private Long id;
-    private String name;
+    private String nome;
     private EnderecoDTO enderecoDTO;
 
 

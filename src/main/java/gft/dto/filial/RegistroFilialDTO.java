@@ -13,7 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class RegistroFilialDTO {
 
-    private String name;
+    private String nome;
     private EnderecoDTO endereco;
 
 
