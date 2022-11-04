@@ -1,7 +1,6 @@
 package gft.dto.filial;
 
 import gft.dto.endereco.EnderecoMapper;
-
 import gft.entities.Filial;
 
 public class FilialMapper {

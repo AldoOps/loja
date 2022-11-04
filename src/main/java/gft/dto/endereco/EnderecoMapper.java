@@ -8,11 +8,9 @@ public class EnderecoMapper {
         return new Endereco(dto.getLogradouro(), dto.getNumero(), dto.getComplemento(), dto.getCep());
     }
 
-
     public static EnderecoDTO fromEntity(Endereco endereco) {
         return new EnderecoDTO(endereco.getLogradouro(), endereco.getNumero(),
                 endereco.getComplemento(), endereco.getCep());
     }
-
 
 }

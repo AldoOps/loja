@@ -1,20 +1,22 @@
 package gft.dto.filial;
-
-
 import gft.dto.endereco.EnderecoDTO;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Setter
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
 public class RegistroFilialDTO {
 
     private String nome;
     private EnderecoDTO endereco;
 
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String name) {
+        this.nome = name;
+    }
+    public EnderecoDTO getEndereco() {
+        return endereco;
+    }
+    public void setEndereco(EnderecoDTO endereco) {
+        this.endereco = endereco;
+    }
 
 }

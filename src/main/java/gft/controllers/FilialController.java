@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("v1/filias")
+@RequestMapping("v1/filiais")
 public class FilialController {
 
     private final FilialService filialService;
@@ -24,14 +24,17 @@ public class FilialController {
 
     @GetMapping
     public ResponseEntity<List<ConsultaFilialDTO>> buscarTodasFilias() {
-        return ResponseEntity.ok(filialService.listarTodasFiliais().stream().map(FilialMapper::fromEntity).collect(Collectors.toList()));
+        return ResponseEntity.ok(filialService.listarTodasAsFilias().stream().map(FilialMapper::fromEntity).collect(Collectors.toList()));
     }
 
     @PostMapping
     public ResponseEntity<ConsultaFilialDTO> salvarFilial(@RequestBody RegistroFilialDTO dto) {
-        Filial filial = filialService.saveFilial(FilialMapper.fromDTO(dto));
+        Filial filial = filialService.salvarFilial(FilialMapper.fromDTO(dto));
         return ResponseEntity.ok(FilialMapper.fromEntity(filial));
+
+
     }
+
 
 
 }
