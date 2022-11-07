@@ -1,28 +1,21 @@
-package gft.entities;
+package gft.dto.cliente;
 
-import javax.persistence.*;
+import gft.dto.endereco.EnderecoDTO;
 
-@Entity
-@Table(name = "tb_cliente")
-public class Cliente {
+public class ConsultaClienteDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String cpf;
     private String nome;
     private String telefone;
     private String email;
 
-    @Embedded
-    private Endereco endereco;
+    private EnderecoDTO endereco;
 
-
-    public Cliente() {
+    public ConsultaClienteDTO() {
     }
 
-    public Cliente(Long id, String cpf, String nome, String telefone, String email, Endereco endereco) {
+    public ConsultaClienteDTO(Long id, String cpf, String nome, String telefone, String email, EnderecoDTO endereco) {
         this.id = id;
         this.cpf = cpf;
         this.nome = nome;
@@ -71,11 +64,11 @@ public class Cliente {
         this.email = email;
     }
 
-    public Endereco getEndereco() {
+    public EnderecoDTO getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco) {
+    public void setEndereco(EnderecoDTO endereco) {
         this.endereco = endereco;
     }
 }
