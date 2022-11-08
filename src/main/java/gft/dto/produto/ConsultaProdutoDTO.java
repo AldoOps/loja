@@ -1,35 +1,22 @@
-package gft.entities;
+package gft.dto.produto;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "tb_produto")
-public class Produto {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ConsultaProdutoDTO {
     private Long id;
-
     private String nome;
-
     private String descricao;
-
     private String unidade;
 
 
-    public Produto() {
+    public ConsultaProdutoDTO() {
     }
 
-    public Produto(Long id) {
-        this.id = id;
-    }
-
-    public Produto(Long id, String nome, String descricao, String unidade) {
+    public ConsultaProdutoDTO(Long id, String nome, String descricao, String unidade) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.unidade = unidade;
     }
+
 
     public Long getId() {
         return id;
@@ -47,19 +34,19 @@ public class Produto {
         this.nome = nome;
     }
 
-    public String getUnidade() {
-        return unidade;
-    }
-
-    public void setUnidade(String unidade) {
-        this.unidade = unidade;
-    }
-
     public String getDescricao() {
         return descricao;
     }
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getUnidade() {
+        return unidade;
+    }
+
+    public void setUnidade(String unidade) {
+        this.unidade = unidade;
     }
 }

@@ -31,7 +31,7 @@ public class FilialController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<ConsultaFilialDTO>> buscarTodasAsFiliais(@PageableDefault Pageable pageable){
+    public ResponseEntity<Page<ConsultaFilialDTO>> buscarTodasAsFiliais(@PageableDefault Pageable pageable) {
 
         return ResponseEntity.ok(filialService.listarTodasAsFiliais(pageable).map(FilialMapper::fromEntity));
 
@@ -50,10 +50,8 @@ public class FilialController {
     public ResponseEntity<ConsultaFilialDTO> buscarFilial(@PathVariable Long id) {
 
 
-
-
-            Filial filial = filialService.buscarFilial(id);
-            return ResponseEntity.ok(FilialMapper.fromEntity(filial));
+        Filial filial = filialService.buscarFilial(id);
+        return ResponseEntity.ok(FilialMapper.fromEntity(filial));
 
     }
 
@@ -61,12 +59,12 @@ public class FilialController {
     public ResponseEntity<ConsultaFilialDTO> alterarFilial(@RequestBody RegistroFilialDTO dto,
                                                            @PathVariable Long id) {
 
-            Filial filial = filialService.atualizarFilial(FilialMapper.fromDTO(dto), id);
-            return ResponseEntity.ok(FilialMapper.fromEntity(filial));
-
+        Filial filial = filialService.atualizarFilial(FilialMapper.fromDTO(dto), id);
+        return ResponseEntity.ok(FilialMapper.fromEntity(filial));
 
 
     }
+
     @DeleteMapping("{id}")
     public ResponseEntity<ConsultaFilialDTO> excluirFilial(@PathVariable Long id) {
 
@@ -79,6 +77,11 @@ public class FilialController {
         }
 
     }
+
+
+
+
+
 
 
 }
